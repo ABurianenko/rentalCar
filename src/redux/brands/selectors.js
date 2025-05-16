@@ -1,0 +1,1 @@
+export const selectBrand = state => state.brands.brands;
