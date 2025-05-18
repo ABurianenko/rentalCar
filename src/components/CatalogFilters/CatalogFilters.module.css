@@ -1,0 +1,120 @@
+.filtersForm {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 56px;
+}
+
+.form {
+    display: flex;
+    gap: 16px;
+}
+
+.labelName {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 133%;
+    color: var(--gray);
+    margin-bottom: 8px;
+}
+
+.selector {
+    border: none;
+    border-radius: 12px;
+    padding: 12px 16px;
+    width: 204px;
+    height: 44px;
+
+    background: var(--inputs);
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    color: var(--main);
+
+    cursor: pointer;
+}
+
+.option {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    color: var(--gray);
+}
+
+.mileageInput {
+    display: flex;
+}
+
+.inputMin {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding-left: 24px;
+
+    border: none;
+    border-right: 1px solid var(--gray-light);
+    border-radius: 12px 0 0 12px;
+    width: 160px;
+    height: 44px;
+    background: var(--inputs);
+}
+
+.inputMin > p,
+.inputMax > p {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    color: var(--main);
+}
+
+.inputMin > input,
+.inputMax > input {
+    border: none;
+    background: var(--inputs);
+    width: 100%;
+
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    color: var(--main);
+}
+
+.inputMax {
+    border: none;
+    border-radius: 0 12px 12px 0;
+    width: 160px;
+    height: 44px;
+    background: var(--inputs);
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding-left: 24px;
+}
+
+.btn {
+    align-self: self-end;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 125%;
+    color: var(--white);
+
+    border: none;
+    border-radius: 12px;
+    padding: 12px 51px;
+    width: 156px;
+    height: 44px;
+
+    background: var(--button);
+    cursor: pointer;
+}
+
+.btn:hover,
+.btn:active {
+    background-color: var(--button-hover);
+}

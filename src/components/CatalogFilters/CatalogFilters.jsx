@@ -7,6 +7,8 @@ import { setBrand, setMaxMileage, setMinMileage, setPrice } from "../../redux/fi
 import { Field, Formik, Form } from "formik";
 import { PRICE } from "../../constants";
 
+import s from './CatalogFilters.module.css'
+
 export const CatalogFilters = () => {
     const dispatch = useDispatch();
     const filters = useSelector(selectFilters);
@@ -20,7 +22,7 @@ export const CatalogFilters = () => {
         brand: filters.brand || "",
         price: filters.price || "",
         minMileage: filters.minMileage || "",
-        maxMileage: filters.maxMleage || "",
+        maxMileage: filters.maxMileage || "",
     }
 
 
@@ -32,37 +34,47 @@ export const CatalogFilters = () => {
     }
 
     return (
-        <div>
-            <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+        <div className={s.filtersForm}>
+            <Formik initialValues={initialValues} onSubmit={handleSubmit} enableReinitialize={true}>
                 {({ handleSubmit }) => (
-                    <Form onSubmit={handleSubmit}>
-                        <label htmlFor="brand">
-                            Car brand
-                            <Field as="select" name="brand" >
-                                <option value="">Choose a brand</option>
+                    <Form onSubmit={handleSubmit} className={s.form}>
+                        <label className={s.label}>
+                            <p className={s.labelName}>Car brand</p>
+                            <Field as="select" name="brand" className={s.selector}>
+                                <option value="" disabled hidden>Choose a brand</option>
                                 {brands.map((brand, id) => (
-                                    <option key={id} value={brand}>{brand}</option>
+                                    <option key={id} value={brand} className={s.option}>{brand}</option>
                                 ))}
                             </Field>
                         </label>
 
-                        <label htmlFor="price">
-                            Price/1hour
-                            <Field as="select" name="price">
-                                <option value="">Choose a price</option>
+                        <label className={s.label}>
+                            <p className={s.labelName}>Price/1hour</p>
+                            <Field as="select" name="price" className={s.selector}>
+                                <option value="" disabled hidden>Choose a price</option>
                                 {PRICE.map((price, id) => (
-                                    <option key={id} value={price.value}>{price.label}</option>
+                                    <option key={id} value={price.value} className={s.option}>{price.label}</option>
                                 ))}
                             </Field>
                         </label>
 
                         <label>
-                            Car mileage/km
-                            <Field type="number" name="minMileage" />
-                            <Field type="number" name="maxMileage" />
+                            <p className={s.labelName}>Car mileage/km</p>
+                            <div className={s.mileageInput}>
+                                <div className={s.inputMin}>
+                                    <p>From</p>
+                                    <Field type="number" name="minMileage" />
+                                </div>
+                                <div className={s.inputMax}>
+                                    <p>To</p>
+                                    <Field type="number" name="maxMileage"  />
+                                </div>
+                            </div>
+                            
+                            
                         </label>
 
-                        <button type="submit" >
+                        <button type="submit" className={s.btn}>
                             Search
                         </button>
                     </Form>

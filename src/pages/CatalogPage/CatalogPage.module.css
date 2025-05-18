@@ -1,0 +1,45 @@
+.catalogContainer {
+    padding: 84px 120px 124px;
+}
+
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 48px 32px;
+}
+
+.message {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    color: var(--button);
+    justify-self: center;
+}
+
+.loadMoreBtn {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 125%;
+    color: var(--main);
+
+    border: 1px solid var(--button);
+    border-radius: 12px;
+    width: 156px;
+    height: 44px;
+
+    background-color: transparent;
+
+    margin-top: 80px;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadMoreBtn:hover,
+.loadMoreBtn:active {
+    border-color: var(--button-hover);
+}

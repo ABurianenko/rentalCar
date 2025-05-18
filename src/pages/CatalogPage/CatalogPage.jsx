@@ -2,9 +2,12 @@ import { CarList } from "../../components/CarList/CarList";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCars, selectError, selectIsLoading, selectLimit, selectPage, selectTotal} from "../../redux/catalog/selectors";
 import { selectFilters } from "../../redux/filters/selectors";
-import { useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { fetchCatalog } from "../../redux/catalog/operations";
 import { CatalogFilters } from "../../components/CatalogFilters/CatalogFilters";
+// import { resetCars } from "../../redux/catalog/slice";
+
+import s from './CatalogPage.module.css'
 
 export const CatalogPage = () => {
     const dispatch = useDispatch();
@@ -18,25 +21,48 @@ export const CatalogPage = () => {
 
     const filters = useSelector(selectFilters);
 
+    const loadMoreButtonRef = useRef(null);
+    const prevPageRef = useRef(page);
+
     const handlePageChange = (newPage) => {
         dispatch(fetchCatalog({filters, page: newPage, limit}))
     }
 
     useEffect(() => {
+        // dispatch(resetCars());
         dispatch(fetchCatalog({ filters, page: 1, limit }));
     }, [dispatch, filters, limit]);
+
+    useEffect(() => {
+        if (prevPageRef.current !== page && page !== 1 && loadMoreButtonRef.current) {
+            loadMoreButtonRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        prevPageRef.current = page;
+    }, [page]);
 
     if (isLoading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;
 
     return (
-        <div>
+        <div className={s.catalogContainer}>
             <CatalogFilters />
-            {(!cars) ? 
-                <p>There are no cars according to your request.</p> :
-                <CarList cars={cars} />
+            {(cars.length===0) ? 
+                <p className={s.message}>There are no cars according to your request.</p> :
+                (
+                <div >
+                    <CarList className={s.catalog} cars={cars} />
+                    <button
+                        className={s.loadMoreBtn}   
+                        ref={loadMoreButtonRef}
+                        onClick={() => handlePageChange(page + 1)}
+                        disabled={page >= total}
+                    >
+                        Load more
+                    </button>   
+                </div> 
+                )
             }
-            <button onClick={() => handlePageChange(page+1)} disabled={page>=total}>Load more</button>
+            
         </div>
     )
 }

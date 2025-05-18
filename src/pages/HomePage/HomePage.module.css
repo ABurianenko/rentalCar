@@ -1,0 +1,50 @@
+.homePage {
+    padding-top: 436px;
+    padding-bottom: 60px;
+    background-image: url(/public/img/homePage.jpg);
+    background-repeat: no-repeat;
+}
+
+.mainTitle {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 120%;
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 16px;
+}
+
+.slogan {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 133%;
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 40px;
+}
+
+.link {
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 125%;
+    color: var(--white);
+
+    border-radius: 12px;
+    padding: 12px 0;
+    width: 276px;
+    height: 44px;
+
+    background-color: var(--button);
+}
+
+.link:hover,
+.link:active {
+    background-color: var(--button-hover);
+}

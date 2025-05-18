@@ -20,10 +20,10 @@ const filtersSlice = createSlice({
             state.filters.price = action.payload;
         },
         setMinMileage(state, action) {
-            state.filters.mileage.from = action.payload;
+            state.filters.minMileage = action.payload;
         },
         setMaxMileage(state, action) {
-            state.filters.mileage.to = action.payload;
+            state.filters.maxMileage = action.payload;
         },
         clearFilters(state) {
             state.filters = initialState.filters;

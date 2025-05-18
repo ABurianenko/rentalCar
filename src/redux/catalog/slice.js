@@ -13,6 +13,13 @@ const initialState = {
 const catalogSlice = createSlice({
     name: 'catalog',
     initialState,
+    reducers: {
+        resetCars(state) {
+            state.cars = [];
+            state.page = 1;
+            state.totalPages = 1;
+        },
+    },
     extraReducers: builder => {
         builder
             .addCase(fetchCatalog.pending, (state) => {
@@ -21,7 +28,11 @@ const catalogSlice = createSlice({
             })
             .addCase(fetchCatalog.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.cars = [...state.cars, ...action.payload.cars];
+                if (action.payload.page === 1) {
+                    state.cars = action.payload.cars;
+                } else {
+                    state.cars = [...state.cars, ...action.payload.cars];
+                }
                 state.totalPages = action.payload.totalPages;
                 state.page = action.payload.page;
             })
@@ -33,3 +44,4 @@ const catalogSlice = createSlice({
 })
 
 export const catalogReducer = catalogSlice.reducer;
+export const { resetCars } = catalogSlice.actions;

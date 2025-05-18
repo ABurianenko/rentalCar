@@ -11,8 +11,8 @@ const getAllCars = async (filters = {}, limit=12, page=1) => {
 
     if (filters.brand) params.append('brand', filters.brand);
     if (filters.price) params.append('rentalPrice', filters.price);
-    if (filters.minMileage) params.append('minMileage', filters.mileage.from);
-    if (filters.maxMileage) params.append('maxMileage', filters.mileage.to);
+    if (filters.minMileage) params.append('minMileage', filters.minMileage);
+    if (filters.maxMileage) params.append('maxMileage', filters.maxMileage);
     params.append('limit', limit);
     params.append('page', page);
 
@@ -24,7 +24,7 @@ const getAllCars = async (filters = {}, limit=12, page=1) => {
 const getCarById = async (id) => {
     const res = await axios(`${BASE_URL}/cars/${id}`)
 
-    return res
+    return res.data;
 }
 
 const getAllBrands = async () => {
