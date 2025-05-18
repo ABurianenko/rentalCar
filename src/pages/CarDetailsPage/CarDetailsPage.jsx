@@ -9,6 +9,7 @@ import { FaRegArrowAltCircleLeft } from "react-icons/fa";
 import { CarImg } from "../../components/CarInfo/CarImg";
 
 import s from './CarDetailsPage.module.css'
+import { Loader } from "../../components/Loader/Loader";
 
 export const CarDetailsPage = () => {
     const dispatch = useDispatch();
@@ -27,7 +28,7 @@ export const CarDetailsPage = () => {
         }
     }, [dispatch, id]);
 
-    if (isLoading) return <p>Loading...</p>;
+    if (isLoading) return <Loader />;
     if (error) return <p>Error: {error}</p>;
     if (!car) return <p>Car not found</p>;
 

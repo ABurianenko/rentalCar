@@ -1,0 +1,15 @@
+.notFoundContainer {
+    display: flex;
+    justify-self: center;
+    margin-top: 80px;
+    gap: 24px;
+    align-items: center;
+}
+
+.notFoundContainer > svg {
+    font-size: 48px;
+}
+.notFoundText {
+    font-weight: 700;
+    font-size: 48px;
+}

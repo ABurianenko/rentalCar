@@ -8,6 +8,7 @@ import { CatalogFilters } from "../../components/CatalogFilters/CatalogFilters";
 import { resetCars } from "../../redux/catalog/slice";
 
 import s from './CatalogPage.module.css'
+import { Loader } from "../../components/Loader/Loader";
 
 export const CatalogPage = () => {
     const dispatch = useDispatch();
@@ -40,7 +41,7 @@ export const CatalogPage = () => {
         prevPageRef.current = page;
     }, [page]);
 
-    if (isLoading) return <p>Loading...</p>;
+    if (isLoading) return <Loader />;
     if (error) return <p>Error: {error}</p>;
 
     return (
