@@ -1,0 +1,55 @@
+.formSubtitle {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    color: var(--gray);
+
+    margin-top: 8px;
+    margin-bottom: 24px;
+}
+
+.inputItem {
+    border-radius: 12px;
+    padding: 12px 20px;
+    width: 100%;
+
+    border: none;
+
+    background: var(--inputs);
+
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+
+    margin-bottom: 16px;
+}
+
+.inputItem[name="comment"] {
+    height: 88px;
+    margin-bottom: 24px;
+}
+
+.sendBtn {
+    border: none;
+    border-radius: 12px;
+    padding: 12px 51px;
+    width: 156px;
+    height: 44px;
+
+    background: var(--button);
+
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 125%;
+    color: var(--white);
+
+    display: flex;
+    justify-self: center;
+}
+
+.sendBtn:hover,
+.sendBtn:active {
+    background-color: var(--button-hover);
+}

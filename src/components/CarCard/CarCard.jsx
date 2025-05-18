@@ -26,9 +26,9 @@ export const CarCard = ({ car }) => {
                 <h2 className={s.brand}>{car.brand} <span>{car.model}</span>, {car.year}</h2>
                 <p className={s.price}>${car.rentalPrice}</p>
             </div>
-            <div className={s.cardText}>
-                <p>{city} | {country} | {car.rentalCompany} |</p>
-                <p>{car.type} | {formatNumber(car.mileage)} km</p>
+            <div className={s.cardTextWrap}>
+                <p className={s.cardText}>{city} | {country} | {car.rentalCompany} |</p>
+                <p className={s.cardText}>{car.type} | {formatNumber(car.mileage)} km</p>
             </div>
             
             <Link className={s.carInfoBtn} to={`/catalog/${car.id}`}>

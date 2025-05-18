@@ -1,0 +1,66 @@
+.titleWrap {
+    display: flex;
+    gap: 16px;
+    align-items: end;
+    margin-bottom: 8px;
+}
+
+.carName {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 133%;
+    text-align: center;
+    color: var(--main);
+}
+
+.carId {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    color: var(--gray);
+}
+
+.textWrap {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.rentalPrice {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 133%;
+    color: var(--button);
+
+    margin-bottom: 32px;
+}
+
+.carDescription {
+    margin-bottom: 68px;
+}
+
+.listsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 110px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.conditionsTitle,
+.specificationsTitle,
+.accessoriesTitle {
+    margin-bottom: 4px;
+}
+
+.listItem {
+    display: flex;
+    gap: 8px;
+}

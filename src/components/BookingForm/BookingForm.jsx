@@ -6,6 +6,8 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useParams } from "react-router-dom";
 
+import s from './BookingForm.module.css'
+
 const BookingDatePicker = () => {
     const { setFieldValue, values } = useFormikContext();
   
@@ -15,13 +17,13 @@ const BookingDatePicker = () => {
         onChange={(date) => setFieldValue("date", date)}
         dateFormat="dd-MM-yyyy"
         placeholderText="Booking date"
-        className="datepicker"
+        className={s.inputItem}
         calendarClassName="calendar"
       />
     );
   };
 
-export const BookingForm = () => {
+export const BookingForm = ({className}) => {
     const { id: carId } = useParams();
 
     const initialValues = {
@@ -59,42 +61,33 @@ export const BookingForm = () => {
     })
 
     return (
-        <div>
+        <div className={className}>
             <h3>Book your car now</h3>
-            <p>Stay connected! We are always ready to help you.</p>
+            <p className={s.formSubtitle}>Stay connected! We are always ready to help you.</p>
             <Formik
                 initialValues={initialValues}
                 onSubmit={handleSubmit}
                 validationSchema={validationSchema}
             >
-                {({ setFieldValue, values }) => (
-                    <Form>
-                        <label>
-                            <Field type="text" name="name" placeholder="Name*" />
-                            <ErrorMessage name="name" component="div" className="error" />
-                        </label>
-                        <label>
-                            <Field type="email" name="email" placeholder="Email*" />
-                            <ErrorMessage name="email" component="div" className="error" />
-                        </label>
-                        <label>
-                            <DatePicker
-                                selected={values.date}
-                                onChange={(date) => setFieldValue("date", date)}
-                                dateFormat="dd-MM-yyyy"
-                                placeholderText="Booking date"
-                                minDate={new Date()}
-                                className="form-datepicker"
-                            />
-                            <ErrorMessage name="date" component="div" className="error" />
-                        </label>
-                        <label>
-                            <Field as="textarea" name="comment" placeholder="Comment" />
-                        </label>
+                <Form className={s.formInputs}>
+                    <label>
+                        <Field className={s.inputItem} type="text" name="name" placeholder="Name*" />
+                        <ErrorMessage name="name" component="div" className="error" />
+                    </label>
+                    <label>
+                        <Field className={s.inputItem} type="email" name="email" placeholder="Email*" />
+                        <ErrorMessage name="email" component="div" className="error" />
+                    </label>
+                    <label >
+                        <BookingDatePicker />                            
+                        <ErrorMessage name="date" component="div" className="error" />
+                    </label>
+                    <label>
+                        <Field  className={s.inputItem} as="textarea" name="comment" placeholder="Comment" />
+                    </label>
 
-                        <button type="submit">Send</button>
-                    </Form>
-                )}
+                    <button className={s.sendBtn} type="submit">Send</button>
+                </Form>
             </Formik>
         </div>
         

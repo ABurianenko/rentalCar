@@ -44,12 +44,14 @@
     color: var(--button);
 }
 
-.cardText {
+.cardTextWrap {
     display: flex;
     flex-direction: column;
     gap: 4px;
     margin-bottom: 32px;
+}
 
+.cardText {
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 12px;

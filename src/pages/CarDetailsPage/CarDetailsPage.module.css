@@ -1,0 +1,44 @@
+.container {
+    padding: 77px 120px 104px;
+    position: relative;
+}
+
+.infoPage {
+    display: grid;
+    grid-template-columns: 640px 488px;
+    grid-template-rows: repeat(2, auto);
+    gap: 48px 72px;
+    grid-template-areas:
+        "poster info"
+        "form info"
+    ;
+}
+
+.goBackBtn > svg {
+    width: 48px;
+    height: 48px;
+    color: var(--white);
+    
+    position: absolute;
+    top: 93px;
+    left: 136px;
+}
+
+.poster {
+    grid-area: poster;
+
+    border-radius: 19px;
+    object-fit: cover;
+}
+
+.info {
+    grid-area: info;
+}
+
+.bookingForm {
+    grid-area: form;
+
+    border: 1px solid var(--gray-light);
+    border-radius: 10px;
+    padding: 32px;
+}

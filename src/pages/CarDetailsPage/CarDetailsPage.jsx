@@ -8,6 +8,8 @@ import { BookingForm } from "../../components/BookingForm/BookingForm";
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
 import { CarImg } from "../../components/CarInfo/CarImg";
 
+import s from './CarDetailsPage.module.css'
+
 export const CarDetailsPage = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
@@ -30,11 +32,14 @@ export const CarDetailsPage = () => {
     if (!car) return <p>Car not found</p>;
 
     return (
-        <div>
-            <Link to={goBackRef.current}><FaRegArrowAltCircleLeft /></Link>
-            <CarImg car={car} />
-            <CarInfo car={car} />
-            <BookingForm />
+        <div className={s.container}>
+            <Link className={s.goBackBtn} to={goBackRef.current}><FaRegArrowAltCircleLeft /></Link>
+            <div className={s.infoPage}>
+                <CarImg className={s.poster} car={car} />
+                <CarInfo className={s.info} car={car} />
+                <BookingForm className={s.bookingForm} />
+            </div>
+            
         </div>
     )
 }

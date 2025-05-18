@@ -5,7 +5,7 @@ import { selectFilters } from "../../redux/filters/selectors";
 import { useRef, useEffect } from "react";
 import { fetchCatalog } from "../../redux/catalog/operations";
 import { CatalogFilters } from "../../components/CatalogFilters/CatalogFilters";
-// import { resetCars } from "../../redux/catalog/slice";
+import { resetCars } from "../../redux/catalog/slice";
 
 import s from './CatalogPage.module.css'
 
@@ -29,7 +29,7 @@ export const CatalogPage = () => {
     }
 
     useEffect(() => {
-        // dispatch(resetCars());
+        dispatch(resetCars());
         dispatch(fetchCatalog({ filters, page: 1, limit }));
     }, [dispatch, filters, limit]);
 

@@ -4,69 +4,71 @@ import { BsFuelPump } from "react-icons/bs";
 import { GoGear } from "react-icons/go";
 import { formatNumber } from "../../utils/formatNumber";
 
-export const CarInfo = ({ car }) => {
+import s from './CarInfo.module.css';
+
+export const CarInfo = ({ car, className }) => {
     const [, city, country] = car.address.split(",");
+    const id = car.id.split('-')[0]
 
     return (
-        <div>
-            <h2>{`${car.brand} ${car.model}, ${car.year}`}</h2>
-            <p>Id: {car.id}</p>
-            <p>
-                <CiLocationOn />
-                {`${city}, ${country}`}
-            </p>
-            <p>Mileage: {formatNumber(car.mileage)} km</p>
-            <p>{car.rentalPrice}</p>
-            <p>{car.description}</p>
-            <h3>Rental Conditions:</h3>
-            <ul>
-                {car.rentalConditions.map((condition, ind) => (
-                    <li key={ind}>
-                        <p>
+        <div className={className}>
+            <div className={s.titleWrap}>
+                <h2 className={s.carName}>{`${car.brand} ${car.model}, ${car.year}`}</h2>
+                <p className={s.carId}>Id: {id}</p>
+            </div>
+            <div className={s.textWrap}>
+                <p className={s.carLocation}>
+                    <CiLocationOn />
+                    {`${city}, ${country}`}
+                </p>
+                <p className={s.carMileage}>Mileage: {formatNumber(car.mileage)} km</p>
+            </div>
+            
+            <p className={s.rentalPrice}>${car.rentalPrice}</p>
+            <p className={s.carDescription}>{car.description}</p>
+            
+            <div className={s.listsContainer}>
+                <ul className={s.list}>
+                    <h3 className={s.conditionsTitle}>Rental Conditions:</h3>
+                    {car.rentalConditions.map((condition, ind) => (
+                        <li className={s.listItem} key={ind}>
                             <CiCircleCheck /> 
-                            {condition}
-                        </p>
-                    </li>
-                ))}
-            </ul>
-            <h3>Car Specifications:</h3>
-            <ul>
-                <li>
-                    <p>
+                            <p>{condition}</p>
+                        </li>
+                    ))}
+                </ul>
+                
+                <ul className={s.list}>
+                    <h3 className={s.specificationsTitle}>Car Specifications:</h3>
+                    <li className={s.listItem}>
                         <IoCalendarOutline /> 
-                        Year: {car.year}
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <IoCarSportOutline /> 
-                        Type: {car.type}
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <BsFuelPump /> 
-                        Fuel Consumption: {car.fuelConsumption}
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <GoGear /> 
-                        Engine Size: {car.engineSize}
-                    </p>
-                </li>
-            </ul>
-            <h3>Accessories and functionalities:</h3>
-            <ul>
-                {car.accessories.map((accessory, ind) => (
-                    <li key={ind}>
-                        <p>
-                            <CiCircleCheck /> 
-                            {accessory}
-                        </p>
+                        <p>Year: {car.year}</p>
                     </li>
-                ))}
-            </ul>
+                    <li className={s.listItem}>
+                        <IoCarSportOutline /> 
+                        <p>Type: {car.type}</p>
+                    </li>
+                    <li className={s.listItem}>
+                        <BsFuelPump /> 
+                        <p>Fuel Consumption: {car.fuelConsumption}</p>
+                    </li>
+                    <li className={s.listItem}>
+                        <GoGear /> 
+                        <p>Engine Size: {car.engineSize}</p>
+                    </li>
+                </ul>
+                
+                <ul className={s.list}>
+                    <h3  className={s.accessoriesTitle}>Accessories and functionalities:</h3>
+                    {car.accessories.map((accessory, ind) => (
+                        <li className={s.listItem} key={ind}>
+                            <CiCircleCheck /> 
+                            <p>{accessory}</p>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            
         </div>
     )
 }
