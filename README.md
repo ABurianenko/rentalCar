@@ -39,7 +39,7 @@ npm run dev
 
 📁 Структура проєкту
 
-rentalCar/
+```txt rentalCar/ 
 ├── public/
 ├── src/
 │ ├── components/
@@ -58,7 +58,7 @@ rentalCar/
 │ ├── App.jsx
 │ └── main.jsx
 ├── package.json
-└── vite.config.js
+└── vite.config.js ```
 
 👤 Автор
 GitHub: [ABurianenko](https://github.com/ABurianenko)
