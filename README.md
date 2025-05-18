@@ -39,7 +39,7 @@ npm run dev
 
 📁 Структура проєкту
 
-<pre> ```txt rentalCar/ ├── public/ ├── src/ │ ├── components/ │ │ ├── CarList/ │ │ ├── CatalogFilters/ │ │ ├── BookingForm/ │ │ └── ... │ ├── pages/ │ │ ├── CatalogPage/ │ │ └── CarDetailsPage/ │ ├── redux/ │ │ ├── catalog/ │ │ ├── filters/ │ │ └── brands/ │ ├── constants/ │ ├── App.jsx │ └── main.jsx ├── package.json └── vite.config.js ``` </pre>
+```txt rentalCar/ ├── public/ ├── src/ │ ├── components/ │ │ ├── CarList/ │ │ ├── CatalogFilters/ │ │ ├── BookingForm/ │ │ └── ... │ ├── pages/ │ │ ├── CatalogPage/ │ │ └── CarDetailsPage/ │ ├── redux/ │ │ ├── catalog/ │ │ ├── filters/ │ │ └── brands/ │ ├── constants/ │ ├── App.jsx │ └── main.jsx ├── package.json └── vite.config.js ```
 
 👤 Автор
 GitHub: [ABurianenko](https://github.com/ABurianenko)
