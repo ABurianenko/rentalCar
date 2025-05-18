@@ -53,3 +53,8 @@
 .sendBtn:active {
     background-color: var(--button-hover);
 }
+
+.error {
+    color: red;
+    margin-bottom: 8px;
+}

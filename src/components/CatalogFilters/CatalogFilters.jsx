@@ -3,7 +3,7 @@ import { selectFilters } from "../../redux/filters/selectors";
 import { useEffect } from "react";
 import { selectBrand } from "../../redux/brands/selectors";
 import { getBrands } from "../../redux/brands/operations";
-import { setBrand, setMaxMileage, setMinMileage, setPrice } from "../../redux/filters/slice";
+import { clearFilters, setBrand, setMaxMileage, setMinMileage, setPrice } from "../../redux/filters/slice";
 import { Field, Formik, Form } from "formik";
 import { PRICE } from "../../constants";
 
@@ -25,6 +25,9 @@ export const CatalogFilters = () => {
         maxMileage: filters.maxMileage || "",
     }
 
+    const hasActiveFilters = () => {
+        return filters.brand || filters.price || filters.minMileage || filters.maxMileage;
+    };
 
     const handleSubmit = (values) => {
         dispatch(setBrand(values.brand));
@@ -77,6 +80,16 @@ export const CatalogFilters = () => {
                         <button type="submit" className={s.btn}>
                             Search
                         </button>
+
+                        {hasActiveFilters() && (
+                        <button
+                            type="button"
+                            className={s.btn}
+                            onClick={() => dispatch(clearFilters())}
+                        >
+                            Clear filters
+                        </button>
+                        )}
                     </Form>
                 )}
             </Formik>

@@ -72,15 +72,15 @@ export const BookingForm = ({className}) => {
                 <Form className={s.formInputs}>
                     <label>
                         <Field className={s.inputItem} type="text" name="name" placeholder="Name*" />
-                        <ErrorMessage name="name" component="div" className="error" />
+                        <ErrorMessage name="name" component="div" className={s.error} />
                     </label>
                     <label>
                         <Field className={s.inputItem} type="email" name="email" placeholder="Email*" />
-                        <ErrorMessage name="email" component="div" className="error" />
+                        <ErrorMessage name="email" component="div" className={s.error} />
                     </label>
                     <label >
                         <BookingDatePicker />                            
-                        <ErrorMessage name="date" component="div" className="error" />
+                        <ErrorMessage name="date" component="div" className={s.error} />
                     </label>
                     <label>
                         <Field  className={s.inputItem} as="textarea" name="comment" placeholder="Comment" />
