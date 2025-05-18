@@ -1,12 +1,64 @@
-# React + Vite
+🚗 RentalCar
+RentalCar — це вебзастосунок для перегляду та бронювання автомобілів. Користувачі можуть фільтрувати авто за брендом, ціною та пробігом, переглядати детальну інформацію про кожен автомобіль та оформлювати бронювання через зручну форму.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🔧 Технології
 
-Currently, two official plugins are available:
+React з використанням Vite для швидкої розробки
+Redux Toolkit для керування станом
+Formik та Yup для обробки форм та валідації
+React Router для маршрутизації
+React DatePicker для вибору дати
+React Toastify для сповіщень
+CSS Modules для стилізації компонентів
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+⚙️ Функціонал
 
-## Expanding the ESLint configuration
+📋 Каталог автомобілів з можливістю фільтрації за брендом, ціною та пробігом
+🔍 Детальна сторінка авто з описом та зображенням
+📅 Форма бронювання з вибором дати та валідацією введених даних
+🔄 Кнопка "Clear filters" з'являється після застосування фільтрів
+🔗 Навігація з можливістю повернення до попередньої сторінки
+🚀 Встановлення та запуск
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Клонування репозиторію:
+
+git clone https://github.com/ABurianenko/rentalCar.git
+cd rentalCar
+
+Встановлення залежностей:
+
+npm install
+
+Запуск застосунку:
+
+npm run dev
+
+Відкриття в браузері:
+
+Перейдіть за адресою http://localhost:5173
+
+📁 Структура проєкту
+
+rentalCar/
+├── public/
+├── src/
+│ ├── components/
+│ │ ├── CarList/
+│ │ ├── CatalogFilters/
+│ │ ├── BookingForm/
+│ │ └── ...
+│ ├── pages/
+│ │ ├── CatalogPage/
+│ │ └── CarDetailsPage/
+│ ├── redux/
+│ │ ├── catalog/
+│ │ ├── filters/
+│ │ └── brands/
+│ ├── constants/
+│ ├── App.jsx
+│ └── main.jsx
+├── package.json
+└── vite.config.js
+
+👤 Автор
+GitHub: [ABurianenko](https://github.com/ABurianenko)
